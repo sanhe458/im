@@ -71,17 +71,21 @@
 - `config/app.php` - 应用配置（含 JWT 密钥）
 
 ### 数据库初始化
-- 执行 schema.sql 中的建表语句
-- 创建管理员用户记录
+- 连接数据库服务器
+- 创建数据库（如果不存在）
+- 读取并执行 `database/schema.sql` 中的所有建表语句
+- 更新管理员账户的用户名和密码（替换默认的 admin/admin123）
 
 ## 验证步骤
 1. 访问 install.php 显示安装表单
-2. 填写表单并提交
-3. 验证配置文件正确生成
-4. 验证数据库表创建成功
-5. 验证管理员账户创建
-6. 验证 install.lock 文件创建
-7. 再次访问 install.php 确认被阻止
+2. 填写数据库信息和管理员用户名密码
+3. 提交表单后验证：
+   - 配置文件正确生成（database.php, redis.php, app.php）
+   - 数据库连接成功
+   - 执行 database/schema.sql 自动创建所有表
+   - 管理员账户按输入的用户名密码创建
+   - install.lock 文件创建成功
+4. 再次访问 install.php 确认被 install.lock 阻止安装
 
 ## 预期输出文件
 - `/workspace/im-system/install.php` - 安装程序主文件
