@@ -10,7 +10,7 @@ IM即时通讯系统 (PHP-based Instant Messaging System)
 
 ### 核心技术栈
 - **后端框架**: PHP 8.2 (原生开发，简洁高效)
-- **数据库**: MySQL 8.0+
+- **数据库**: MySQL 5.7
 - **缓存系统**: Redis
 - **实时通信**: WebSocket (Ratchet库)
 - **API风格**: RESTful API
